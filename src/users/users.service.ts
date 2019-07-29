@@ -15,6 +15,10 @@ export class UsersService {
         return this.usersRepository.findOne({twitterId});
     }
 
+    async findOneById(id: number): Promise<Users> {
+        return this.usersRepository.findOne({id});
+    }
+
     async create(token: string, tokenSecret: string, profile: TwitterProfile) {
         const newUser = this.usersRepository.create();
         newUser.twitterId = profile.id;
