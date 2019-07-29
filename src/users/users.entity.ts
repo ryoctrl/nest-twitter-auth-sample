@@ -7,7 +7,7 @@ export class Users extends BaseEntity implements IUsers {
     id?: number;
 
     @Column()
-    readonly twitterId: string;
+    twitterId: string;
 
     @Column()
     screenName: string;
@@ -16,9 +16,10 @@ export class Users extends BaseEntity implements IUsers {
     iconUrl?: string | null = null;
 
     constructor(
-        readonly twitterId: string,
-        readonly screenName: string
+        twitterId: string,
+        screenName: string
     ) {
+        super();
         this.twitterId = twitterId;
         this.screenName = screenName;
     }
